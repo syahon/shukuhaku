@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
-  get 'pages/home'
-  get 'sessions/new'
-  get 'reservations/new'
-  get 'reservations/index'
-  get 'reservations/show'
-  get 'rooms/new'
-  get 'rooms/index'
-  get 'rooms/search'
-  get 'users/new'
-  get 'users/show'
-  get 'users/edit'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root 'pages#home'
+  get '/login',    to: 'sessions#new'
+  post '/login',   to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
+  get '/sign_up',  to: 'users#new'
+  resources :users, only: [:show, :edit, :create, :update, :destroy]
+  resources :reservations, only: [:new, :index, :show, :create]
+  resources :rooms, only: [:new, :index, :create] do
+    collection do
+      get :search
+    end
+  end
 end

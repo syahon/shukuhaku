@@ -8,9 +8,9 @@ RSpec.describe "Rooms", type: :request do
     end
   end
 
-  describe "GET /index" do
+  describe "GET /rooms (index)" do
     it "returns http success" do
-      get "/rooms/index"
+      get "/rooms"
       expect(response).to have_http_status(:success)
     end
   end
