@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe "Reservations", type: :request do
+  let!(:reservation) { create(:reservation) }
+
   describe "GET /new" do
     it "returns http success" do
       get "/reservations/new"
@@ -17,7 +19,7 @@ RSpec.describe "Reservations", type: :request do
 
   describe "GET /show" do
     it "returns http success" do
-      get "/reservations/show"
+      get "/reservations/#{reservation.id}"
       expect(response).to have_http_status(:success)
     end
   end
