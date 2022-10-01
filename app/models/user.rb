@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :rooms, dependent: :destroy
   before_save { mail.downcase! }
   validates :user_name, presence: true
   MAIL_REGEX = /\A[\w+-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i

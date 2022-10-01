@@ -5,5 +5,6 @@ FactoryBot.define do
     introduction { "MyText" }
     price { 1 }
     address { "MyString" }
+    user_id { 1 }
   end
 end
