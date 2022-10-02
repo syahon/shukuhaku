@@ -25,6 +25,9 @@ RSpec.describe "Users", type: :system do
 
     context "有効な値を送信した場合" do
       it "ユーザーの登録に成功すること" do
+        users = User.all
+        expect(users.size).to eq 0
+
         visit sign_up_path
 
         fill_in "名前", with: user.user_name
@@ -34,7 +37,6 @@ RSpec.describe "Users", type: :system do
 
         click_on "アカウント作成"
 
-        users = User.all
         expect(users.size).to eq 1
         expect(current_path).to eq user_path(user)
         expect(page).to have_content "アカウントを登録しました"
@@ -70,6 +72,22 @@ RSpec.describe "Users", type: :system do
         expect(user.reload.user_name).to eq "hoge"
         expect(page).to have_content "アカウントを更新しました"
       end
+    end
+  end
+
+  describe "ユーザーアカウントの削除" do
+    it "プロフィールページからアカウントの削除ができること" do
+      user.save
+      users = User.all
+      expect(users.size).to eq 1
+
+      visit user_path(user)
+
+      click_on "アカウント削除"
+
+      expect(users.size).to eq 0
+      expect(current_path).to eq root_path
+      expect(page).to have_content "アカウントを削除しました"
     end
   end
 end
