@@ -1,0 +1,12 @@
+<% if object.errors.any? %>
+  <div class="error-container">
+    <div class="alert alert-error">
+      エラー： 以下の<%= object.errors.count %>項目
+    </div>
+    <ul>
+      <% object.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

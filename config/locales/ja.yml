@@ -8,6 +8,8 @@ ja:
        user:
          user_name: 名前
          mail: メールアドレス
+         password: パスワード
+         password_confirmation: パスワード確認
        room:
          room_name: ルーム名
          introduction: ルーム紹介
