@@ -34,8 +34,41 @@ RSpec.describe "Users", type: :system do
 
         click_on "アカウント作成"
 
+        users = User.all
+        expect(users.size).to eq 1
         expect(current_path).to eq user_path(user)
         expect(page).to have_content "アカウントを登録しました"
+      end
+    end
+  end
+
+  describe "ユーザーの登録内容の編集" do
+    context "無効な値を送信した場合" do
+      it "更新に失敗すること" do
+        user.save
+        visit user_path(user)
+        click_on "編集"
+
+        fill_in "名前", with: " "
+
+        click_on "アカウント更新"
+
+        expect(page).to have_content "エラー："
+      end
+    end
+
+    context "パスワードとパスワード確認の項目を空の状態で有効な値を送信した場合" do
+      it "更新に成功すること" do
+        user.save
+        visit edit_user_path(user)
+
+        fill_in "名前", with: "hoge"
+
+        click_on "アカウント更新"
+
+        expect(current_path).to eq user_path(user)
+        expect(user.reload.user_name).to eq "hoge"
+        expect(page).to have_content "アカウントを更新しました"
       end
     end
   end

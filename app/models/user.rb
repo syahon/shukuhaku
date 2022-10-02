@@ -8,5 +8,5 @@ class User < ApplicationRecord
                    uniqueness: { case_sensitive: false },
                    format: { with: MAIL_REGEX }
   has_secure_password
-  validates :password, presence: true, length: { minimum: 8 }
+  validates :password, presence: true, length: { minimum: 8 }, allow_nil: true
 end

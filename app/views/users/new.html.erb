@@ -1,17 +1,2 @@
-<%= form_with(model: @user, local: true) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
-
-  <%= f.label :user_name %>
-  <%= f.text_field :user_name %>
-
-  <%= f.label :mail %>
-  <%= f.email_field :mail %>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-
-  <%= f.submit "アカウント作成" %>
-<% end %>
+<% provide(:button_text, "アカウント作成") %>
+<%= render 'form' %>
