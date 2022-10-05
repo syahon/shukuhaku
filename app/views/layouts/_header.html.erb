@@ -1,0 +1,25 @@
+<header class="bg-dark">
+  <div class="container-fluid">
+    <div class="navbar navbar-light">
+      <div class="navbar">
+        <div class="nav-item">
+          <%= link_to image_tag("logo.png", alt: "ロゴ"), root_url %>
+        </div>
+        <div class="nav-item form-area">
+          <%= form_with(url: search_rooms_path, method: :get, local: true) do |f| %>
+            <%= f.text_field :area, placeholder: " エリア", class: "form-control" %>
+          <% end %>
+        </div>
+        <div class="nav-item form-area">
+          <%= form_with(url: search_rooms_path, method: :get, local: true) do |f| %>
+            <%= f.text_field :word, placeholder: "キーワード", class: "form-control" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="nav-item">
+        <%= link_to "ログイン", login_path, class: "btn btn-primary" %>
+        <%= link_to "登録する", sign_up_path, class: "btn btn-secondary" %>
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,28 +1,22 @@
-<div class="user-profile">
-  <div class="#">
-    <h5>アカウント</h5>
-  </div>
-  <div class="user-content">
-    <ul>
-      <li>
-        <div class="#">ユーザー名</div>
-        <div class="#"><%= @user.user_name %></div>
-      </li>
-      <li>
-        <div class="#">メールアドレス</div>
-        <div class="#"><%= @user.mail %></div>
-      </li>
-      <li>
-        <div class="#">パスワード</div>
-        <div class="#">********</div>
-      </li>
-    </ul>
-    <div>
-      <%= link_to "編集", edit_user_path(@user) %>
-    </div>
-    <div>
+<div class="container user-profile">
+  <h5>アカウント</h5>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <div class="user-tag">ユーザー名</div>
+      <%= @user.user_name %>
+    </li>
+    <li class="list-group-item">
+      <div class="user-tag">メールアドレス</div>
+      <div><%= @user.mail %></div>
+    </li>
+    <li class="list-group-item">
+      <div class="user-tag">パスワード</div>
+      <div>********</div>
+    </li>
+    <li class="list-group-item">
+      <%= link_to "編集", edit_user_path(@user), class: "btn btn-primary" %>
       <%= link_to "アカウント削除", user_path(@user), method: :delete,
-          data: { confirm: "本当に削除してもよろしいですか？" } %>
-    </div>
-  </div>
+      data: { confirm: "本当に削除してもよろしいですか？" }, class: "btn btn-danger" %>
+    </li>
+  </ul>
 </div>

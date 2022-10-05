@@ -1,0 +1,99 @@
+/* universal */
+
+body {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 180px;
+}
+
+/* header */
+
+.form-area {
+  margin-right: 5px;
+  @media (max-width: 991px) {
+    display: none;
+  }
+}
+
+/* footer */
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  background-color: #212529;
+  color: #fff;
+  text-align: center;
+  height: 180px;
+  width: 100%;
+  font-size: 13px;
+  padding-top: 90px;
+}
+
+/* sign_up form */
+
+.user-form {
+  max-width: 600px;
+  margin: 50px auto;
+  border-radius: 4px;
+  box-shadow: 0px 1px 3px 0px rgba(21, 27, 38, 0.15);
+  padding-top: 35px;
+  padding-bottom: 20px;
+  p {
+    text-align: center;
+    font-weight: bold;
+  }
+  label {
+    color: #333;
+    span {
+      display: flex;
+    }
+  }
+}
+
+.form-inner {
+  width: 360px;
+  margin: 0 auto;
+  .btn {
+    width: 360px;
+    margin-top: 20px;
+  }
+}
+
+/* user_edit form */
+
+.edit-form span{
+  display: none;
+}
+
+/* _error_message */
+
+.error-container {
+  border: solid #ff0000;
+  font-size: 14px;
+}
+
+.alert-error {
+  color: #fff;
+}
+
+.field_with_errors {
+  display: contents;
+  .form-control {
+    border: 1px solid #ff0000;
+  }
+}
+
+/* user_show */
+
+.user-profile {
+  margin: 30px auto;
+  h5 {
+    margin-bottom: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+  .user-tag {
+    font-weight: 600;
+    color: #666;
+  }
+}
