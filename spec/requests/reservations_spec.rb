@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Reservations", type: :request do
+  let!(:user) { create(:user) }
   let!(:reservation) { create(:reservation) }
 
   describe "GET /new" do

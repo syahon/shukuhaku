@@ -14,6 +14,7 @@ RSpec.describe "Users", type: :system do
 
         click_on "アカウント作成"
 
+        user.id = 1
         expect(current_path).to_not eq user_path(user)
 
         within ".error-container" do
@@ -38,6 +39,8 @@ RSpec.describe "Users", type: :system do
         click_on "アカウント作成"
 
         expect(users.size).to eq 1
+        mail = user.mail
+        user = User.find_by(mail: mail)
         expect(current_path).to eq user_path(user)
         expect(page).to have_content "アカウントを登録しました"
       end

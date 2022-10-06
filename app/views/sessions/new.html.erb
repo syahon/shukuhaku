@@ -1,2 +1,13 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<%= form_with(url: login_path, scope: :session, local: true) do |f| %>
+
+  <%= f.label :mail, "メールアドレス", class: "form-label" %>
+  <span class="badge bg-danger">必須</span>
+  <%= f.email_field :mail, class: "form-control" %>
+
+  <%= f.label :password, "パスワード", class: "form-label" %>
+  <span class="badge bg-danger">必須</span>
+  <%= f.password_field :password ,class: "form-control" %>
+
+  <%= f.submit "ログイン", class: "btn btn-primary", id: "login" %>
+  <%= link_to "新しいアカウントを作成する", sign_up_path %>
+<% end %>
