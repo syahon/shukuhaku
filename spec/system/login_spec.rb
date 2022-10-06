@@ -2,6 +2,12 @@ require 'rails_helper'
 
 RSpec.describe "Login", type: :system do
   let!(:user) { create(:user) }
+  def user_login
+    visit login_path
+    fill_in "メールアドレス", with: user.mail
+    fill_in "パスワード", with: "password"
+    find("#login").click
+  end
 
   describe "ユーザーのログイン" do
     context "パスワードが間違っている場合" do
@@ -28,7 +34,22 @@ RSpec.describe "Login", type: :system do
         find("#login").click
 
         expect(current_path).to eq root_path
+        expect(page).to have_content "ようこそ #{user.user_name} 様"
+        expect(page).to have_selector ".dropdown", text: user.user_name
       end
+    end
+  end
+
+  describe "ユーザーのログアウト" do
+    it "ヘッダーのログアウトをクリックすることでログアウトできること" do
+      user_login
+      expect(page).to_not have_content "ログイン"
+
+      find(".dropdown").click
+      click_link "ログアウト"
+
+      expect(current_path).to eq root_path
+      expect(page).to have_content "ログアウトしました"
     end
   end
 end
