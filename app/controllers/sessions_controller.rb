@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(mail: params[:session][:mail].downcase)
     if @user&.authenticate(params[:session][:password])
       log_in(@user)
+      remember(@user)
       flash[:success] = "ようこそ #{@user.user_name} 様"
       redirect_to root_path
     else
