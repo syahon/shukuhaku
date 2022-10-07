@@ -50,6 +50,20 @@ RSpec.describe "Login", type: :system do
         expect(user.reload.remember_digest).to eq nil
       end
     end
+
+    context "未ログイン状態で編集ページにアクセスしようとした場合" do
+      it "ログイン後編集ページにリダイレクトされること" do
+        visit edit_user_path(user)
+        expect(current_path).to eq login_path
+
+        fill_in "メールアドレス", with: user.mail
+        fill_in "パスワード", with: "password"
+
+        find("#login").click
+
+        expect(current_path).to eq edit_user_path(user)
+      end
+    end
   end
 
   describe "ユーザーのログアウト" do
