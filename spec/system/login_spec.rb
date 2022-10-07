@@ -1,16 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Login", type: :system do
-  let!(:user) { create(:user) }
-
-  def user_login
-    visit login_path
-    fill_in "メールアドレス", with: user.mail
-    fill_in "パスワード", with: "password"
-    check "次回から自動でログイン"
-    find("#login").click
-    user.reload
-  end
+  let!(:user) { create(:user, :main) }
 
   describe "ユーザーのログイン" do
     context "パスワードが間違っている場合" do

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Users", type: :system do
-  let!(:user) { build(:user) }
+  let!(:user) { build(:user, :main) }
 
   describe "ユーザーの新規登録" do
     context "無効な値を送信した場合" do
@@ -51,6 +51,7 @@ RSpec.describe "Users", type: :system do
     context "無効な値を送信した場合" do
       it "更新に失敗すること" do
         user.save
+        user_login
         visit user_path(user)
         click_on "編集"
 
@@ -65,6 +66,7 @@ RSpec.describe "Users", type: :system do
     context "パスワードとパスワード確認の項目を空の状態で有効な値を送信した場合" do
       it "更新に成功すること" do
         user.save
+        user_login
         visit edit_user_path(user)
 
         fill_in "名前", with: "hoge"
@@ -81,6 +83,7 @@ RSpec.describe "Users", type: :system do
   describe "ユーザーアカウントの削除" do
     it "プロフィールページからアカウントの削除ができること" do
       user.save
+      user_login
       users = User.all
       expect(users.size).to eq 1
 

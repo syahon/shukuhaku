@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :room do
-    association :user, strategy: :create
+    association :user, :main, strategy: :create
     room_name { "MyString" }
     introduction { "MyText" }
     price { 1 }

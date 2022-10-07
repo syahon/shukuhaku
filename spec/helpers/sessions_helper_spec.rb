@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe SessionsHelper, type: :helper do
-  let!(:user) { create(:user) }
+  let!(:user) { create(:user, :main) }
 
   describe "current_user" do
     context "セッションがnilの場合" do

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let!(:user) { build(:user) }
+  let!(:user) { build(:user, :main) }
 
   describe "valid" do
     context "全ての値が正常な場合" do
