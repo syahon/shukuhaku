@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  describe "valid" do
-    let!(:user) { build(:user) }
+  let!(:user) { build(:user) }
 
+  describe "valid" do
     context "全ての値が正常な場合" do
       it "データが有効であること" do
         expect(user).to be_valid
@@ -83,5 +83,14 @@ RSpec.describe User, type: :model do
       end
     end
 
+  end
+
+  # 複数のブラウザでログイン時に一方でログアウトし、もう一方ではブラウザを閉じて再度アクセスした場合を想定する
+  describe "authenticated?" do
+    context "remember_digestが空の場合" do
+      it "falseを返すこと" do
+        expect(user.authenticated?(" ")).to be_falsy
+      end
+    end
   end
 end

@@ -50,6 +50,13 @@ RSpec.describe "Login", type: :system do
 
       expect(current_path).to eq root_path
       expect(page).to have_content "ログアウトしました"
+      expect(page).to_not have_selector ".dropdown", text: user.user_name
+
+      # 複数のウィンドウでのログアウトを想定する
+      delete logout_path
+      expect(current_path).to eq root_path
+      expect(page).to have_content "ログアウトしました"
+      expect(page).to_not have_selector ".dropdown", text: user.user_name
     end
   end
 end
