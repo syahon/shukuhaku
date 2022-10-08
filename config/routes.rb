@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
   get '/sign_up',  to: 'users#new'
   resources :users, only: [:show, :edit, :create, :update, :destroy]
-  resources :reservations, only: [:new, :index, :show, :create]
-  resources :rooms, only: [:new, :index, :create] do
+  resources :reservations, only: [:new, :index, :create]
+  resources :rooms, only: [:new, :index, :show, :create] do
     collection do
       get :search
     end

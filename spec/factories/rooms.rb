@@ -1,10 +1,15 @@
 FactoryBot.define do
   factory :room do
-    association :user, :main, strategy: :create
-    room_name { "MyString" }
-    introduction { "MyText" }
-    price { 1 }
-    address { "MyString" }
-    user_id { 1 }
+      trait :main do
+      association :user, :main, strategy: :create
+      room_name { "main room" }
+      introduction { "MyText" }
+      price { 1 }
+      address { "MyString" }
+
+      after(:build) do |room|
+        room.room_image.attach(io: File.open('spec/factories/images/test_dummy.jpg'), filename: 'test_dummy.jpg', content_type: 'image/jpeg')
+      end
+    end
   end
 end

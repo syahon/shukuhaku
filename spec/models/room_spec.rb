@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Room, type: :model do
   describe "valid" do
-    let!(:room) { build(:room) }
+    let!(:room) { build(:room, :main) }
 
     context "全ての値が正常な場合" do
       it "データが有効であること" do

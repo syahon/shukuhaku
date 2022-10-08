@@ -1,2 +1,26 @@
-<h1>Rooms#new</h1>
-<p>Find me in app/views/rooms/new.html.erb</p>
+<p>ルーム情報登録</p>
+<%= form_with(model:@room, lacal: true) do |f| %>
+  <%= render 'shared/error_messages', object:f.object %>
+
+  <%= f.label :room_name, class: "form-label" %>
+  <span class="badge bg-danger">必須</span>
+  <%= f.text_field :room_name, placeholder:"ルーム名を入力", class: "form-control" %>
+
+  <%= f.label :introduction, class: "form-label" %>
+  <span class="badge bg-danger">必須</span>
+  <%= f.text_area :introduction, placeholder:"ルーム説明を入力", class: "form-control" %>
+
+  <%= f.label :price, class: "form-label" %>
+  <span class="badge bg-danger">必須</span>
+  <%= f.number_field :price, placeholder:"一日あたりの料金を入力", class: "form-control" %>
+
+  <%= f.label :address, class: "form-label" %>
+  <span class="badge bg-danger">必須</span>
+  <%= f.text_field :address, placeholder:"住所を入力", class: "form-control" %>
+
+  <%= f.label :room_image, "ルーム画像", class: "form-label" %>
+  <span class="badge bg-danger">必須</span>
+  <%= f.file_field :room_image, class: "form-control" %>
+
+  <%= f.submit "登録", class: "btn btn-primary" %>
+<% end %>
