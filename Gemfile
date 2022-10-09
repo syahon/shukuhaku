@@ -10,6 +10,7 @@ gem 'pagy'
 gem 'jquery-rails'
 gem 'active_storage_validations'
 gem 'mini_magick'
+gem 'faker'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.7'

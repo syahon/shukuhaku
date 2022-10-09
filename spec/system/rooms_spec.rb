@@ -49,6 +49,5 @@ RSpec.describe "Rooms", type: :system do
         expect(page).to have_button "予約する"
       end
     end
-
   end
 end

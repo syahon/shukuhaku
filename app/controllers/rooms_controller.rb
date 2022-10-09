@@ -4,6 +4,7 @@ class RoomsController < ApplicationController
   end
 
   def index
+    @pagy, @rooms = pagy(Room.all)
   end
 
   def show
