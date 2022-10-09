@@ -15,7 +15,7 @@ ja:
          introduction: ルーム紹介
          price: 料金
          address: 住所
-         room_image: ルーム画像
+         image: ルーム画像
        reservation:
          start_date: 開始日
          end_date: 終了日

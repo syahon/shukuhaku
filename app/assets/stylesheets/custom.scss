@@ -67,6 +67,10 @@ body {
 
 /* _error_message */
 
+.alert-bottom {
+  --bs-alert-margin-bottom: 0 !important;
+}
+
 .error-container {
   border: solid #ff0000;
   font-size: 14px;

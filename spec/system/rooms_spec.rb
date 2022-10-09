@@ -43,9 +43,10 @@ RSpec.describe "Rooms", type: :system do
         click_on "登録"
 
         room = Room.find_by(room_name: "main room")
+        expect(rooms.count).to eq 1
         expect(current_path).to eq room_path(room)
         expect(page).to have_content "ルーム情報を登録しました"
-        expect(rooms.count).to eq 1
+        expect(page).to have_button "予約する"
       end
     end
 

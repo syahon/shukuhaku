@@ -32,7 +32,7 @@ RSpec.describe "Login", type: :system do
         expect(user.reload.remember_digest).to_not eq nil
         expect(current_path).to eq root_path
         expect(page).to have_content "ようこそ #{user.user_name} 様"
-        expect(page).to have_selector ".dropdown", text: user.user_name
+        expect(page).to have_selector ".dropdown", text: "メニュー"
       end
     end
 
