@@ -50,4 +50,29 @@ RSpec.describe "Rooms", type: :system do
       end
     end
   end
+
+  describe "ルームの検索" do
+    context "エリア検索で東京と入力した場合"do
+      it "addressの値に東京が含まれるルームのみが表示されること" do
+        create_list(:room, 30, :main, address: "大阪")
+        create_list(:room, 31, :main, address: "東京")
+        visit root_path
+
+        all(".form-control")[2].set("東京")
+
+        click_on "探す"
+
+        expect(current_path).to eq search_rooms_path
+        expect(page.all(".room-about p")[1]).to have_content "東京"
+        expect(page).to have_content "東京", count: 30
+
+        click_link "2"
+
+        expect(current_path).to eq search_rooms_path
+        expect(page.all(".room-about p")[1]).to have_content "東京"
+        expect(page).to have_content "東京", count: 1
+        expect(page).to_not have_content "大阪"
+      end
+    end
+  end
 end

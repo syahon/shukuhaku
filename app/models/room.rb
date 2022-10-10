@@ -11,4 +11,14 @@ class Room < ApplicationRecord
                                                          message: "は以下のファイル形式で入力してください  .jpeg .jpg .png" },
                                          size:        { less_than: 5.megabytes,
                                                          message: "の容量が5MBを超えています" }
+
+  class << self
+    def look_area(area)
+      where("address LIKE?", "%#{area}%")
+    end
+
+    def look_word(word)
+      where("room_name LIKE? OR introduction LIKE?", "%#{word}%", "%#{word}%")
+    end
+  end
 end

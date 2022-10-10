@@ -13,6 +13,13 @@ class RoomsController < ApplicationController
   end
 
   def search
+    if params[:area]
+      @pagy, @rooms = pagy(Room.look_area(params[:area]))
+    elsif params[:word]
+      @pagy, @rooms = pagy(Room.look_word(params[:word]))
+    else
+      redirect_to root_url
+    end
   end
 
   def create
