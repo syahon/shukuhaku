@@ -21,4 +21,8 @@ class Room < ApplicationRecord
       where("room_name LIKE? OR introduction LIKE?", "%#{word}%", "%#{word}%")
     end
   end
+
+  def image_resize
+    image.variant(resize: '1000x600')
+  end
 end

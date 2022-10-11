@@ -1,26 +1,62 @@
-<p>ルーム情報登録</p>
-<%= form_with(model:@room, lacal: true) do |f| %>
-  <%= render 'shared/error_messages', object:f.object %>
+<div class="container-fluid room-form">
+  <div class="room-form-inner">
+    <p>ルーム情報登録</p>
+    <%= form_with(model:@room, lacal: true) do |f| %>
+      <div class="container">
+        <%= render 'shared/error_messages', object:f.object %>
 
-  <%= f.label :room_name, class: "form-label" %>
-  <span class="badge bg-danger">必須</span>
-  <%= f.text_field :room_name, placeholder:"ルーム名を入力", class: "form-control" %>
+        <div class="row room-content">
+          <div class="col-3">
+            <%= f.label :room_name, class: "form-label" %>
+            <span class="badge bg-danger">必須</span>
+          </div>
+          <div class="col-9">
+            <%= f.text_field :room_name, placeholder:"ルーム名を入力", class: "form-control" %>
+          </div>
+        </div>
 
-  <%= f.label :introduction, class: "form-label" %>
-  <span class="badge bg-danger">必須</span>
-  <%= f.text_area :introduction, placeholder:"ルーム説明を入力", class: "form-control" %>
+        <div class="row room-content">
+          <div class="col-3">
+            <%= f.label :introduction, class: "form-label" %>
+            <span class="badge bg-danger">必須</span>
+          </div>
+          <div class="col-9">
+            <%= f.text_area :introduction, placeholder:"ルーム説明を入力", class: "form-control" %>
+          </div>
+        </div>
 
-  <%= f.label :price, class: "form-label" %>
-  <span class="badge bg-danger">必須</span>
-  <%= f.number_field :price, placeholder:"一日あたりの料金を入力", class: "form-control" %>
+        <div class="row room-content">
+          <div class="col-3">
+            <%= f.label :price, class: "form-label" %>
+            <span class="badge bg-danger">必須</span>
+          </div>
+          <div class="col-9">
+            <%= f.number_field :price, placeholder:"一日あたりの料金を入力", class: "form-control" %>
+          </div>
+        </div>
 
-  <%= f.label :address, class: "form-label" %>
-  <span class="badge bg-danger">必須</span>
-  <%= f.text_field :address, placeholder:"住所を入力", class: "form-control" %>
+        <div class="row room-content">
+          <div class="col-3">
+            <%= f.label :address, class: "form-label" %>
+            <span class="badge bg-danger">必須</span>
+          </div>
+          <div class="col-9">
+            <%= f.text_field :address, placeholder:"住所を入力", class: "form-control" %>
+          </div>
+        </div>
 
-  <%= f.label :image, class: "form-label" %>
-  <span class="badge bg-danger">必須</span>
-  <%= f.file_field :image, class: "form-control" %>
+        <div class="row room-content">
+          <div class="col-3">
+            <%= f.label :image, class: "form-label" %>
+            <span class="badge bg-danger">必須</span>
+          </div>
+          <div class="col-9">
+            <%= f.file_field :image, class: "form-control" %>
+          </div>
+        </div>
 
-  <%= f.submit "登録", class: "btn btn-primary" %>
-<% end %>
+        <%= f.submit "登録", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

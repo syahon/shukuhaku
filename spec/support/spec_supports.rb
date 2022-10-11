@@ -7,4 +7,8 @@ module SpecSupports
     find("#login").click
     user.reload
   end
+
+  def post_login
+    post login_path, params: { session: { mail: user.mail, password: "password"}}
+  end
 end

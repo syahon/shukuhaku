@@ -4,8 +4,7 @@ RSpec.describe "Users", type: :request do
   let!(:user) { create(:user, :main) }
   let!(:other_user) { create(:user, :other) }
   before do
-    post login_path, params: { session: { mail: user.mail,
-                                          password: "password"}}
+    post_login
   end
 
   describe "GET /sign_up (new)" do

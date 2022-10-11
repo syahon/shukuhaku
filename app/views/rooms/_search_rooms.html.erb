@@ -1,16 +1,17 @@
-<div class="container">
+<div class="container room-index">
+  <p class="search-count"><%= "検索結果: #{@pagy.count}件中#{@rooms.count}件を表示" %></p>
   <div class="row">
     <% @rooms.each do |room| %>
       <div class="col-xl-3 col-lg-4 col-6">
         <div class="room-container">
           <a href=<%= room_url(room) %> >
-            <div class="room-image">
-              <%= image_tag room.image %>
+            <div>
+              <%= image_tag room.image_resize, class: "room-image" %>
             </div>
             <div class="room-about">
               <p><%= room.room_name %></p>
               <p><%= room.address %></p>
-              <p><%= room.price %></p>
+              <p>¥<%= room.price %></p>
             </div>
           </a>
         </div>
