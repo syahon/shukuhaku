@@ -1,2 +1,16 @@
-<h1>Reservations#new</h1>
-<p>Find me in app/views/reservations/new.html.erb</p>
+<%= form_with(model:@reservation, local: true) do |f| %>
+  <%= hidden_field_tag :id, @room.id %>
+
+  <%= f.label :start_date, class: "form-label" %>
+  <%= f.text_field :start_date, readonly: true, class: "form-control" %>
+
+  <%= f.label :end_date, class: "form-label" %>
+  <%= f.text_field :end_date, readonly: true, class: "form-control" %>
+
+  <%= f.label :sum_people, class: "form-label" %>
+  <%= f.text_field :sum_people, readonly: true, class: "form-control" %>
+
+  <%= f.submit "予約を確定する", class: "btn btn-primary" %>
+
+  <%= f.submit "ルーム詳細に戻る", name: :back, class: "btn btn-secondary" %>
+<% end %>

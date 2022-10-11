@@ -46,7 +46,7 @@ RSpec.describe "Rooms", type: :system do
         expect(rooms.count).to eq 1
         expect(current_path).to eq room_path(room)
         expect(page).to have_content "ルーム情報を登録しました"
-        expect(page).to have_button "予約する"
+        expect(page).to have_button "確認画面に進む"
       end
     end
   end

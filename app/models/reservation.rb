@@ -22,7 +22,7 @@ class Reservation < ApplicationRecord
 
   def start_end_check
     return if start_date.nil? || end_date.nil?
-    errors.add("日帰りでの予約はできません") if
+    errors.add :base, "日帰りでの予約はできません" if
     self.start_date == self.end_date
   end
 end
