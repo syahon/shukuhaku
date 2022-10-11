@@ -75,4 +75,17 @@ RSpec.describe "Rooms", type: :system do
       end
     end
   end
+
+  describe "scopeによる並び順" do
+    it "作成日が新しいものから先頭に並ぶこと" do
+      create(:room, :main, room_name: "最初", created_at: 1.years.ago)
+      create_list(:room, 30, :main, created_at: 1.months.ago)
+      create(:room, :main, room_name: "最後", created_at: 1.days.ago)
+
+      visit rooms_path
+
+      expect(page).to have_content "最後"
+      expect(page).to_not have_content "最初"
+    end
+  end
 end

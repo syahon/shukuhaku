@@ -2,6 +2,7 @@ class Room < ApplicationRecord
   belongs_to :user
   has_many :reservations, dependent: :destroy
   has_one_attached :image
+  scope :recent, -> { order(created_at: :desc) }
   validates :user_id, presence: true
   validates :room_name, presence: true, length: { maximum: 50 }
   validates :introduction, presence: true

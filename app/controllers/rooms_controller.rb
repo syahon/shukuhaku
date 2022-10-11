@@ -6,7 +6,7 @@ class RoomsController < ApplicationController
   end
 
   def index
-    @pagy, @rooms = pagy(Room.all)
+    @pagy, @rooms = pagy(Room.recent)
   end
 
   def show
@@ -16,9 +16,9 @@ class RoomsController < ApplicationController
 
   def search
     if params[:area]
-      @pagy, @rooms = pagy(Room.look_area(params[:area]))
+      @pagy, @rooms = pagy(Room.look_area(params[:area]).recent)
     elsif params[:word]
-      @pagy, @rooms = pagy(Room.look_word(params[:word]))
+      @pagy, @rooms = pagy(Room.look_word(params[:word]).recent)
     else
       redirect_to root_url
     end
