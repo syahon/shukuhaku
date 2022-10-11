@@ -7,6 +7,7 @@ class ReservationsController < ApplicationController
   end
 
   def index
+    @pagy, @reservations = pagy(Reservation.all.recent)
   end
 
   def create
