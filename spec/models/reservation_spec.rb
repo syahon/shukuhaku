@@ -78,6 +78,20 @@ RSpec.describe Reservation, type: :model do
       end
     end
 
+    context "total_priceが空の場合" do
+      it "total_priceが無効であること" do
+        reservation.total_price = nil
+        expect(reservation).to_not be_valid
+      end
+    end
+
+    context "total_priceが0の場合" do
+      it "total_priceが無効であること" do
+        reservation.total_price = 0
+        expect(reservation).to_not be_valid
+      end
+    end
+
     context "user_idが空の場合" do
       it "データが無効であること" do
         reservation.user_id = nil

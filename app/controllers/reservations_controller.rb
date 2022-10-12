@@ -1,6 +1,7 @@
 class ReservationsController < ApplicationController
   def new
     reservation_build
+    @reservation.total_price = @room.price * @reservation.sum_people * (@reservation.end_date - @reservation.start_date).to_i
     if @reservation.invalid?
       render template: 'rooms/show'
     end
@@ -25,7 +26,7 @@ class ReservationsController < ApplicationController
 
   private
     def reservation_params
-      params.require(:reservation).permit(:start_date, :end_date, :sum_people)
+      params.require(:reservation).permit(:start_date, :end_date, :sum_people, :total_price)
     end
 
     def reservation_build

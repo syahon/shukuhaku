@@ -5,5 +5,6 @@ FactoryBot.define do
     start_date { Date.today.next_day(1) }
     end_date { Date.today.next_day(2) }
     sum_people { 1 }
+    total_price { 10000 }
   end
 end

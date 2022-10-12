@@ -17,8 +17,8 @@
 
         <p class="days">使用日数： <%= (@reservation.end_date - @reservation.start_date).to_i %> 日</p>
 
-        <%= f.label "合計料金", class: "form-label" %>
-        <%= f.text_field "", readonly: true, class: "form-control" %>
+        <%= f.label :total_price, class: "form-label" %>
+        <%= f.text_field :total_price, readonly: true, class: "form-control" %>
 
         <%= f.submit "予約を確定する", class: "btn btn-primary" %>
 
