@@ -10,6 +10,8 @@ ja:
          mail: メールアドレス
          password: パスワード
          password_confirmation: パスワード確認
+         profile: 自己紹介
+         image: アイコン画像
        room:
          room_name: ルーム名
          introduction: ルーム紹介
@@ -20,3 +22,4 @@ ja:
          start_date: 開始日
          end_date: 終了日
          sum_people: 人数
+         total_price: 合計料金

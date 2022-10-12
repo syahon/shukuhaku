@@ -10,8 +10,7 @@ class Room < ApplicationRecord
   validates :address, presence: true
   validates :image, attached: true, content_type: { in: ['image/jpeg', 'image/jpg', 'image/png'],
                                                          message: "は以下のファイル形式で入力してください  .jpeg .jpg .png" },
-                                         size:        { less_than: 5.megabytes,
-                                                         message: "の容量が5MBを超えています" }
+                                     size:        { less_than: 5.megabytes, message: "の容量が5MBを超えています" }
 
   class << self
     def look_area(area)

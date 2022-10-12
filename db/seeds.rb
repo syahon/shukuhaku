@@ -1,3 +1,6 @@
+ActiveStorage::AnalyzeJob.queue_adapter = :inline
+ActiveStorage::PurgeJob.queue_adapter = :inline
+
 User.create!(
   user_name: "first",
   mail: "first@example.com",

@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :rooms, dependent: :destroy
   has_many :reservations
+  has_one_attached :image
   attr_accessor :remember_token
   before_save { mail.downcase! }
   validates :user_name, presence: true
@@ -10,6 +11,9 @@ class User < ApplicationRecord
                    format: { with: MAIL_REGEX }
   has_secure_password
   validates :password, presence: true, length: { minimum: 8 }, allow_nil: true
+  validates :image, content_type: { in: ['image/jpeg', 'image/jpg', 'image/png'],
+                                                         message: "は以下のファイル形式で入力してください  .jpeg .jpg .png" },
+                     size:        { less_than: 5.megabytes, message: "の容量が5MBを超えています" }
 
   class << self
     def digest(string)
