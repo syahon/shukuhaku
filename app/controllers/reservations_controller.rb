@@ -1,4 +1,6 @@
 class ReservationsController < ApplicationController
+  before_action :logged_in_user, only: [:new, :create]
+
   def new
     reservation_build
     @reservation.total_price = @room.price * @reservation.sum_people * (@reservation.end_date - @reservation.start_date).to_i

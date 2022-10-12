@@ -6,7 +6,7 @@ class RoomsController < ApplicationController
   end
 
   def index
-    @pagy, @rooms = pagy(Room.recent)
+    @pagy, @rooms = pagy(current_user.rooms.recent)
   end
 
   def show

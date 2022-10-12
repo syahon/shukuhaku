@@ -1,0 +1,7 @@
+<tr>
+  <td><%= link_to image_tag(room.image_resize, alt: "ルーム画像", class: "index-image"), room_path(room) %></td>
+  <td><%= link_to(room.room_name, room_path(room)) %></td>
+  <td><%= room.introduction %></td>
+  <td>¥<%= room.price %></td>
+  <td><%= room.created_at.to_s(:datetime_jp) %></td>
+</tr>

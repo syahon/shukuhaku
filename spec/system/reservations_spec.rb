@@ -64,5 +64,26 @@ RSpec.describe "Reservations", type: :system do
         expect(page).to have_css ".room-image"
       end
     end
+
+    context "未ログイン状態でルームの予約をしようとした場合" do
+      it "ログイン画面に遷移しログインすると予約確認画面に遷移されること" do
+        visit room_path(room)
+
+        fill_in "開始日", with: reservation.start_date
+        fill_in "終了日", with: reservation.end_date
+        fill_in "人数", with: 2
+        click_on "確認画面に進む"
+
+        expect(current_path).to eq login_path
+
+        fill_in "メールアドレス", with: user.mail
+        fill_in "パスワード", with: "password"
+
+        find("#login").click
+
+        expect(current_path).to eq new_reservation_path
+        expect(page).to have_field "合計料金", with: 200
+      end
+    end
   end
 end

@@ -78,9 +78,9 @@ RSpec.describe "Rooms", type: :system do
 
   describe "scopeによる並び順" do
     it "作成日が新しいものから先頭に並ぶこと" do
-      create(:room, :main, room_name: "最初", created_at: 1.years.ago)
-      create_list(:room, 30, :main, created_at: 1.months.ago)
-      create(:room, :main, room_name: "最後", created_at: 1.days.ago)
+      create(:room, :main, room_name: "最初", created_at: 1.years.ago, user_id: user.id)
+      create_list(:room, 30, :main, created_at: 1.months.ago, user_id: user.id)
+      create(:room, :main, room_name: "最後", created_at: 1.days.ago, user_id: user.id)
 
       visit rooms_path
 

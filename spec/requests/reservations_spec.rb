@@ -8,4 +8,14 @@ RSpec.describe "Reservations", type: :request do
     end
   end
 
+  describe "rooms_controllerのbefore_action" do
+    context "ログインせずに予約確認画面にアクセスしようとした場合" do
+      it "ログインページにリダイレクトされること" do
+        get new_reservation_path
+        expect(response).to redirect_to login_url
+        expect(flash[:danger]).to be_truthy
+      end
+    end
+  end
+
 end

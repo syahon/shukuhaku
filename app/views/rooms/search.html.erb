@@ -1,1 +1,8 @@
-<%= render 'search_rooms' %>
+<div class="container room-index">
+  <p class="search-count"><%= "検索結果: #{@pagy.count}件中#{@rooms.count}件を表示" %></p>
+  <div class="row">
+    <%= render partial: 'search_rooms', collection: @rooms, as: :room %>
+  </div>
+</div>
+
+<%= render 'shared/pagy' %>

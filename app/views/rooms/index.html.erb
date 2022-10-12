@@ -1,1 +1,19 @@
-<%= render 'search_rooms' %>
+<div class="container index-container">
+  <h4>登録済みルーム一覧</h4>
+  <table class="table">
+    <thead class="index-thead">
+      <tr>
+        <th scope="col">ルーム画像</th>
+        <th scope="col">ルーム名</th>
+        <th scope="col">ルーム紹介</th>
+        <th scope="col">料金</th>
+        <th scope="col">作成日</th>
+      </tr>
+    </thead>
+    <tbody class="index-tbody">
+      <%= render @rooms %>
+    </tbody>
+  </table>
+</div>
+
+<%= render 'shared/pagy' %>

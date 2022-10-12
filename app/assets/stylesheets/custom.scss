@@ -266,7 +266,7 @@ body {
   }
 }
 
-/* room index search */
+/* room search */
 
 .room-index {
   margin: 30px 0;
@@ -350,25 +350,27 @@ body {
   }
 }
 
-/* reservation index */
+/* room & reservation index */
 
-.reservation-image {
-  width: 240px;
+.index-image {
+  max-width: 240px;
   height: 140px;
   object-fit: cover;
 }
 
-.reservation-container h4 {
-  margin: 30px;
+.index-container {
+  overflow: auto;
+  h4 {
+    margin: 30px;
+  }
 }
-
-.reservation-thead {
+.index-thead {
   font-size: 15px;
   text-align: center;
   color: #333;
 }
 
-.reservation-tbody {
+.index-tbody {
   font-size: 14px;
   tr:nth-child(even) {
     background-color: #f7fcfe;
@@ -379,9 +381,13 @@ body {
     &:nth-child(2) {
       font-weight: bold;
       font-size: 18px;
+      min-width: 220px;
       a{
         color: #4496d3;
       }
+    }
+    &:nth-child(3) {
+      min-width: 200px;
     }
   }
 }
