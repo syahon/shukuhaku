@@ -34,6 +34,24 @@ RSpec.describe "Reservations", type: :system do
       end
     end
 
+    context "未入力がある状態で送信した場合" do
+      it "予約に失敗すること" do
+        user_login
+        visit room_path(room)
+
+        next_date = Date.new.next_day
+
+        fill_in "開始日", with: next_date
+        fill_in "人数", with: 2
+
+        click_on "確認画面に進む"
+
+        within ".error-container" do
+          expect(page).to have_content "終了日を入力してください"
+        end
+      end
+    end
+
     context "有効な値を送信した場合" do
       it "予約に成功すること" do
         reservations = Reservation.all

@@ -7,9 +7,8 @@ class Reservation < ApplicationRecord
   validates :start_date, presence: true
   validates :end_date, presence: true
   validates :sum_people, presence: true, numericality: { greater_than: 0 }
-  validates :total_price, presence: true, numericality: { greater_than: 0 }
+  validates :total_price, presence: { message: "が計算できません" }, numericality: { greater_than: 0, message: "が不正な値になります" }
   validate :start_date_check, :end_date_check, :start_end_check
-
   def start_date_check
     return if start_date.nil? || end_date.nil?
     errors.add(:start_date, "は明日以降の日付を選択してください") if

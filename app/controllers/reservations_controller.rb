@@ -3,7 +3,7 @@ class ReservationsController < ApplicationController
 
   def new
     reservation_build
-    @reservation.total_price = @room.price * @reservation.sum_people * (@reservation.end_date - @reservation.start_date).to_i
+    calc_price
     if @reservation.invalid?
       render template: 'rooms/show'
     end
@@ -35,5 +35,11 @@ class ReservationsController < ApplicationController
       @reservation = current_user.reservations.build(reservation_params)
       @room = Room.find(params[:id])
       @reservation.room_id = @room.id
+    end
+
+    def calc_price
+      unless @reservation.sum_people.nil? || @reservation.end_date.nil? || @reservation.start_date.nil?
+        @reservation.total_price = @room.price * @reservation.sum_people * (@reservation.end_date - @reservation.start_date).to_i
+      end
     end
 end
