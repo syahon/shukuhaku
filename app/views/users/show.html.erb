@@ -1,6 +1,40 @@
 <div class="container user-profile">
-  <h5>アカウント</h5>
-  <ul class="list-group">
+  <div class="user-profile-inner">
+    <h1>プロフィール</h1>
+    <%= form_with(model:@user, local: true) do |f| %>
+      <div class="container">
+        <%= render 'shared/error_messages', object:f.object %>
+
+        <div class="row user-content">
+          <%= image_tag @user.image_user_resize, class: "user-image" %>
+        </div>
+
+        <div class="row user-content">
+          <div class="col-3">
+            <%= f.label :image, class: "form-label" %>
+          </div>
+          <div class="col-9">
+            <%= f.file_field :image, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="row user-content">
+          <div class="col-3">
+            <%= f.label :profile, class: "form-label" %>
+          </div>
+          <div class="col-9">
+            <%= f.text_area :profile, placeholder:"自己紹介を入力", class: "form-control" %>
+          </div>
+        </div>
+
+        <%= f.submit "更新", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+
+
+  <ul class="list-group account-show">
+    <h2>アカウント</h2>
     <li class="list-group-item">
       <div class="user-tag">ユーザー名</div>
       <%= @user.user_name %>

@@ -45,9 +45,11 @@ body {
   box-shadow: 0px 1px 3px 0px rgba(21, 27, 38, 0.15);
   padding-top: 35px;
   padding-bottom: 20px;
-  p {
+  h1 {
     text-align: center;
     font-weight: bold;
+    font-size: 16px;
+    padding-bottom: 16px;
   }
   label {
     color: #333;
@@ -68,10 +70,11 @@ body {
 
 /* user_edit form */
 
-.edit-form span{
-  display: none;
+.edit-form {
+  span{
+    display: none;
+  }
 }
-
 /* _error_message */
 
 .alert-bottom {
@@ -98,15 +101,63 @@ body {
 
 .user-profile {
   margin: 30px auto;
-  h5 {
+  h2 {
     margin-bottom: 16px;
     font-weight: bold;
+    font-size: 20px;
     color: #333;
   }
   .user-tag {
     font-weight: 600;
     color: #666;
   }
+}
+
+.user-profile-inner {
+  max-width: 880px;
+  margin: 0 auto;
+  border-radius: 4px;
+  box-shadow: 0px 1px 3px 0px rgba(21, 27, 38, 0.15);
+  padding: 35px 10px;
+  h1 {
+    font-weight: bold;
+    font-size: 20px;
+    padding-bottom: 16px;
+  }
+  .user-image {
+    object-fit: cover;
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+  }
+  label {
+    color: #414141;
+    font-weight: 600;
+  }
+  .btn {
+    margin-top: 30px;
+    margin-left: 10px;
+    width: 150px;
+  }
+}
+
+.user-content {
+  padding: 30px 20px;
+  border-bottom: 1px solid #cdcdcd;
+  &:first-child {
+    border-top: 1px solid #cdcdcd;
+  }
+  textarea {
+    height: 180px;
+  }
+}
+
+.account-show {
+  max-width: 880px;
+  margin: 40px auto 0;
 }
 
 /* login */
@@ -194,7 +245,7 @@ body {
   box-shadow: 0px 1px 3px 0px rgba(21, 27, 38, 0.15);
   padding: 35px 10px;
   background-color: #fff;
-  p {
+  h1 {
     text-align: center;
     font-weight: bold;
     font-size: 20px;
@@ -332,9 +383,10 @@ body {
   box-shadow: 0px 1px 3px 0px rgba(21, 27, 38, 0.15);
   padding: 35px 10px;
   background-color: #fff;
-  h4 {
+  h1 {
     border-bottom: 1px solid #cdcdcd;
     padding-bottom: 15px;
+    font-size: 23px;
   }
   p {
     font-size: 18px;
@@ -367,7 +419,8 @@ body {
 
 .index-container {
   overflow: auto;
-  h4 {
+  h1 {
+    font-size: 23px;
     margin: 30px;
   }
 }

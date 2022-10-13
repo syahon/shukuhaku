@@ -78,6 +78,44 @@ RSpec.describe "Users", type: :system do
         expect(page).to have_content "アカウントを更新しました"
       end
     end
+
+    context "自己紹介を入力しユーザーアイコン画像に無効なファイルを送信した場合" do
+      it "更新に失敗し自己紹介の入力内容が保持されること" do
+        user.save
+        user_login
+        visit user_path(user)
+
+        fill_in "自己紹介", with: "テスト"
+        attach_file "アイコン画像", "#{Rails.root}/spec/factories/images/test_dummy.gif"
+
+        click_on "更新"
+
+        expect(current_path).to eq user_path(user)
+        within ".error-container" do
+          expect(page).to have_content "以下のファイル形式で入力してください"
+        end
+        expect(page).to have_field "自己紹介", with: "テスト"
+        expect(user.reload.profile).to_not eq "テスト"
+      end
+    end
+
+    context "自己紹介、ユーザーアイコン画像を有効な値を送信した場合" do
+      it "更新に成功すること" do
+        user.save
+        user_login
+        visit user_path(user)
+
+        fill_in "自己紹介", with: "テスト"
+        attach_file "アイコン画像", "#{Rails.root}/spec/factories/images/test_dummy.jpg"
+
+        click_on "更新"
+
+        expect(current_path).to eq user_path(user)
+        expect(page).to have_content "アカウントを更新しました"
+        expect(page).to have_field "自己紹介", with: "テスト"
+        expect(user.reload.profile).to eq "テスト"
+      end
+    end
   end
 
   describe "ユーザーアカウントの削除" do

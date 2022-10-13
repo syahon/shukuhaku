@@ -32,7 +32,12 @@ class UsersController < ApplicationController
       flash[:success] = "アカウントを更新しました"
       redirect_to @user
     else
-      render 'edit'
+      if params[:commit] == "更新"
+        keep_only_profile
+        render 'show'
+      else
+        render 'edit'
+      end
     end
   end
 
@@ -44,6 +49,11 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:user_name, :mail, :password, :password_confirmation, :image)
+      params.require(:user).permit(:user_name, :mail, :password, :password_confirmation, :image, :profile)
+    end
+
+    def keep_only_profile
+      @user.reload
+      @user.profile = params[:user][:profile]
     end
 end

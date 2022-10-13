@@ -67,5 +67,9 @@ RSpec.configure do |config|
     driven_by :rack_test
   end
 
+  config.after(:all) do
+    FileUtils.rm_rf(ActiveStorage::Blob.service.root) if Rails.env.test?
+  end
+
   config.include SpecSupports
 end

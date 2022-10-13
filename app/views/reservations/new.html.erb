@@ -1,7 +1,7 @@
 <div class="container-fluid reservation-form">
   <div class="reservation-form-inner">
     <div class="container">
-      <h4>予約内容確認</h4>
+      <h1>予約内容確認</h1>
       <p>¥ <%= @room.price %> / 日</p>
       <%= form_with(model:@reservation, local: true) do |f| %>
         <%= hidden_field_tag :id, @room.id %>
