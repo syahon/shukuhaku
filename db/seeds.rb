@@ -5,7 +5,9 @@ User.create!(
   user_name: "first",
   mail: "first@example.com",
   password: "password",
-  password_confirmation: "password"
+  password_confirmation: "password",
+  image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join('app/assets/images/default_icon.jpeg')),
+                                                    filename:"default_icon.jpeg", content_type: "image/jpeg")
 )
 
 3.times do |n|
@@ -16,7 +18,9 @@ User.create!(
     user_name: name,
     mail: mail,
     password: password,
-    password_confirmation: password
+    password_confirmation: password,
+    image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join('app/assets/images/default_icon.jpeg')),
+                                                      filename:"default_icon.jpeg", content_type: "image/jpeg")
   )
 end
 

@@ -11,9 +11,9 @@ class User < ApplicationRecord
                    format: { with: MAIL_REGEX }
   has_secure_password
   validates :password, presence: true, length: { minimum: 8 }, allow_nil: true
-  validates :image, content_type: { in: ['image/jpeg', 'image/jpg', 'image/png'],
+  validates :image, attached: true, content_type: { in: ['image/jpeg', 'image/jpg', 'image/png'],
                                                          message: "は以下のファイル形式で入力してください  .jpeg .jpg .png" },
-                     size:        { less_than: 5.megabytes, message: "の容量が5MBを超えています" }
+                                     size:        { less_than: 5.megabytes, message: "の容量が5MBを超えています" }
 
   class << self
     def digest(string)
@@ -39,6 +39,15 @@ class User < ApplicationRecord
 
   def forget
     update_attribute(:remember_digest, nil)
+  end
+
+  def default_image
+    image.attach(io: File.open(Rails.root.join('app/assets/images/default_icon.jpeg')),
+                     filename: 'default_icon.jpeg', content_type: 'image/jpeg')
+  end
+
+  def image_user_resize
+    image.variant(resize: '500x500')
   end
 
 end

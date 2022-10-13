@@ -17,17 +17,22 @@
         </div>
       </div>
       <% if logged_in? %>
-        <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-            メニュー
-          </button>
-          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-            <li><%= link_to "ルーム登録", new_room_path, class: "dropdown-item" %></li>
-            <li><%= link_to "予約済みルーム一覧", reservations_path, class: "dropdown-item" %></li>
-            <li><%= link_to "登録済みルーム一覧", rooms_path, class: "dropdown-item" %></li>
-            <li><%= link_to "アカウント設定", user_path(current_user), class: "dropdown-item" %></li>
-            <li><%= link_to "ログアウト", logout_path, method: :delete, class: "dropdown-item" %></li>
-          </ul>
+        <div class="navbar d-flex">
+          <div class="nav-item me-2">
+            <%= link_to image_tag(current_user.image_user_resize, alt: "ユーザーアイコン", class: "user-image"), user_path(current_user) %>
+          </div>
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              メニュー
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+              <li><%= link_to "ルーム登録", new_room_path, class: "dropdown-item" %></li>
+              <li><%= link_to "予約済みルーム一覧", reservations_path, class: "dropdown-item" %></li>
+              <li><%= link_to "登録済みルーム一覧", rooms_path, class: "dropdown-item" %></li>
+              <li><%= link_to "アカウント設定", user_path(current_user), class: "dropdown-item" %></li>
+              <li><%= link_to "ログアウト", logout_path, method: :delete, class: "dropdown-item" %></li>
+            </ul>
+          </div>
         </div>
       <% else %>
         <div class="nav-item">
