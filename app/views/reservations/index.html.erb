@@ -1,0 +1,21 @@
+<div class="container index-container">
+  <h1>予約済みルーム一覧</h1>
+  <table class="table">
+    <thead class="index-thead">
+      <tr>
+        <th scope="col">ルーム画像</th>
+        <th scope="col">ルーム名</th>
+        <th scope="col">ルーム紹介</th>
+        <th scope="col">合計料金</th>
+        <th scope="col">開始日</th>
+        <th scope="col">終了日</th>
+        <th scope="col">予約確定日時</th>
+      </tr>
+    </thead>
+    <tbody class="index-tbody">
+      <%= render @reservations %>
+    </tbody>
+  </table>
+</div>
+
+<%= render 'shared/pagy' %>

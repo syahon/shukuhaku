@@ -1,0 +1,453 @@
+/* universal */
+
+body {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 180px;
+}
+
+/* header */
+
+.form-area {
+  margin-right: 5px;
+  @media (max-width: 991px) {
+    display: none;
+  }
+}
+
+.user-image {
+  object-fit: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+}
+
+/* footer */
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  background-color: #212529;
+  color: #fff;
+  text-align: center;
+  height: 180px;
+  width: 100%;
+  font-size: 13px;
+  padding-top: 90px;
+}
+
+/* sign_up form */
+
+.user-form {
+  max-width: 600px;
+  margin: 50px auto;
+  border-radius: 4px;
+  box-shadow: 0px 1px 3px 0px rgba(21, 27, 38, 0.15);
+  padding-top: 35px;
+  padding-bottom: 20px;
+  h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    padding-bottom: 16px;
+  }
+  label {
+    color: #333;
+    span {
+      display: flex;
+    }
+  }
+}
+
+.form-inner {
+  width: 360px;
+  margin: 0 auto;
+  .btn {
+    width: 360px;
+    margin-top: 20px;
+  }
+}
+
+/* user_edit form */
+
+.edit-form {
+  span{
+    display: none;
+  }
+}
+/* _error_message */
+
+.alert-bottom {
+  --bs-alert-margin-bottom: 0 !important;
+}
+
+.error-container {
+  border: solid #ff0000;
+  font-size: 14px;
+}
+
+.alert-error {
+  color: #fff;
+}
+
+.field_with_errors {
+  display: contents;
+  .form-control {
+    border: 1px solid #ff0000;
+  }
+}
+
+/* user_show */
+
+.user-profile {
+  margin: 30px auto;
+  h2 {
+    margin-bottom: 16px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #333;
+  }
+  .user-tag {
+    font-weight: 600;
+    color: #666;
+  }
+}
+
+.user-profile-inner {
+  max-width: 880px;
+  margin: 0 auto;
+  border-radius: 4px;
+  box-shadow: 0px 1px 3px 0px rgba(21, 27, 38, 0.15);
+  padding: 35px 10px;
+  h1 {
+    font-weight: bold;
+    font-size: 20px;
+    padding-bottom: 16px;
+  }
+  .user-image {
+    object-fit: cover;
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+  }
+  label {
+    color: #414141;
+    font-weight: 600;
+  }
+  .btn {
+    margin-top: 30px;
+    margin-left: 10px;
+    width: 150px;
+  }
+}
+
+.user-content {
+  padding: 30px 20px;
+  border-bottom: 1px solid #cdcdcd;
+  &:first-child {
+    border-top: 1px solid #cdcdcd;
+  }
+  textarea {
+    height: 180px;
+  }
+}
+
+.account-show {
+  max-width: 880px;
+  margin: 40px auto 0;
+}
+
+/* login */
+
+.user-form .form-check {
+    margin-top: 10px;
+}
+
+.new-user-link {
+  text-align: center;
+  margin-top: 16px;
+}
+
+/* home */
+
+.top {
+  width: 100%;
+  height: 628px;
+  background-image: url("/assets/img_cover_top.jpg");
+  background-size: cover;
+}
+
+.area-search {
+  height: 628px;
+  display: flex;
+  align-items: center;
+}
+
+.area-search-inner {
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 24px;
+  margin: auto;
+  p {
+  font-size: 28px;
+  }
+  .btn {
+    margin-top: 20px;
+    width: 100%;
+  }
+}
+
+.example-area {
+  margin: 50px;
+  text-align: center;
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 32px 0;
+  }
+  img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    margin-bottom: 18px;
+    border-radius: 4px;
+  }
+  .col-6 {
+    position: relative;
+  }
+  span {
+    font-size: 22px;
+    font-weight: bold;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: auto;
+    bottom: 36px;
+    color: #fff;
+    text-shadow: 2px 2px 5px #000;
+  }
+}
+
+/* room new */
+
+.room-form {
+  background-color: #f7f6f5;
+  padding: 50px 0;
+}
+
+.room-form-inner {
+  max-width: 880px;
+  margin: 0 auto;
+  border-radius: 4px;
+  box-shadow: 0px 1px 3px 0px rgba(21, 27, 38, 0.15);
+  padding: 35px 10px;
+  background-color: #fff;
+  h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  label {
+    color: #414141;
+    font-weight: 600;
+    span {
+      display: flex;
+    }
+  }
+  .btn {
+    margin-top: 30px;
+    margin-left: 10px;
+    width: 150px;
+  }
+}
+
+.room-content {
+  padding: 30px 20px;
+  border-bottom: 1px solid #cdcdcd;
+  textarea {
+    height: 180px;
+  }
+}
+
+/* room image */
+
+.room-image {
+  width: 100%;
+  object-fit: cover;
+}
+
+/* room show */
+
+.room-show {
+  margin: 50px 0;
+}
+
+.room-show-inner {
+  padding: 0 15px;
+}
+
+.room-profile {
+  p:first-child {
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 16px;
+    margin-bottom: 0;
+  }
+  p:nth-child(2) {
+    border-bottom: 1px solid #cdcdcd;
+    padding-bottom: 32px;
+  }
+}
+
+.reservation-field {
+  padding: 0 20px;
+}
+
+.reservation-field-inner {
+  border-radius: 4px;
+  border: 1px solid #cdcdcd;
+  padding: 30px 25px;
+  p {
+    font-weight: bold;
+    font-size: 20px;
+  }
+  label {
+    color: #333;
+    margin: 10px 0;
+  }
+  .btn {
+    width: 100%;
+    margin: 30px 0 10px;
+  }
+}
+
+/* room search */
+
+.room-index {
+  margin: 30px 0;
+}
+
+.search-count {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.room-container {
+  border: 1px solid #cdcdcd;
+  border-top: none;
+  margin-top: 10px;
+  min-height: 320px;
+  position: relative;
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+  p {
+    color: #000;
+  }
+  p:first-child {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 0;
+    color: #727171;
+  }
+  p:nth-child(2) {
+    padding-bottom: 16px;
+  }
+  p:last-child {
+    margin-bottom: 0;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
+}
+
+.room-about {
+  margin: 10px 10px 0px;
+}
+
+/* reservation new */
+
+.reservation-form {
+  background-color: #f7f6f5;
+  padding: 50px 0;
+}
+
+.reservation-form-inner {
+  max-width: 620px;
+  margin: 0 auto;
+  border-radius: 4px;
+  box-shadow: 0px 1px 3px 0px rgba(21, 27, 38, 0.15);
+  padding: 35px 10px;
+  background-color: #fff;
+  h1 {
+    border-bottom: 1px solid #cdcdcd;
+    padding-bottom: 15px;
+    font-size: 23px;
+  }
+  p {
+    font-size: 18px;
+  }
+  .days {
+    padding-bottom: 8px;
+    border-bottom: 1px solid #cdcdcd;
+  }
+  label {
+    color: #414141;
+    font-weight: 600;
+  }
+  .form-control {
+    background-color: #ececec;
+    margin-bottom: 20px;
+  }
+  .btn {
+    margin: 8px auto;
+    width: 100%;
+  }
+}
+
+/* room & reservation index */
+
+.index-image {
+  max-width: 240px;
+  height: 140px;
+  object-fit: cover;
+}
+
+.index-container {
+  overflow: auto;
+  h1 {
+    font-size: 23px;
+    margin: 30px;
+  }
+}
+.index-thead {
+  font-size: 15px;
+  text-align: center;
+  color: #333;
+}
+
+.index-tbody {
+  font-size: 14px;
+  tr:nth-child(even) {
+    background-color: #f7fcfe;
+  }
+  td{
+    display: table-cell;
+    vertical-align: middle;
+    &:nth-child(2) {
+      font-weight: bold;
+      font-size: 18px;
+      min-width: 220px;
+      a{
+        color: #4496d3;
+      }
+    }
+    &:nth-child(3) {
+      min-width: 200px;
+    }
+  }
+}
